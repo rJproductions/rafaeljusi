@@ -373,6 +373,18 @@
       font-size: min(4.8vw, 50px);
       margin-top: -3px;
     }
+    /* Orange sticker — rotates with disc */
+    .vinyl-sticker {
+      position: absolute;
+      width: 9%;
+      height: 9%;
+      border-radius: 50%;
+      background: var(--warm-orange);
+      top: 12%;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 10px rgba(196,82,26,0.7), 0 0 4px rgba(232,135,58,0.5);
+    }
     /* Tiny centre spindle */
     .hero-vinyl-hole {
       position: absolute;
@@ -1028,7 +1040,9 @@
     <div class="hero-right">
       <div class="hero-record-scene">
         <div class="hero-vinyl-wrap">
-          <div class="hero-vinyl"></div>
+          <div class="hero-vinyl">
+            <div class="vinyl-sticker"></div>
+          </div>
           <div class="hero-vinyl-label">
             <span class="vinyl-r">r</span>
             <span class="vinyl-j">J</span>
