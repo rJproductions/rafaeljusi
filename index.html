@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rafa Jusi — Guitarist · Teacher · Songwriter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=DM+Serif+Display:ital@0;1&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rust: #C4521A;
+      --burnt: #A8400F;
+      --warm-orange: #D4651F;
+      --amber: #E8873A;
+      --cream: #F5ECD7;
+      --warm-white: #FAF4E8;
+      --deep-brown: #1C100A;
+      --mid-brown: #3A1F10;
+      --sand: #C9A97A;
+      --muted-sand: #9C7A54;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--deep-brown);
+      color: var(--cream);
+      font-family: 'Lora', serif;
+      font-weight: 400;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    /* ── GRAIN OVERLAY ── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 256px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 52px;
+      transition: background 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(28, 16, 10, 0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(196, 82, 26, 0.2);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: baseline;
+      gap: 0px;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .logo-r {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 2.1rem;
+      color: var(--amber);
+      line-height: 1;
+    }
+    .logo-j {
+      font-family: 'Abril Fatface', serif;
+      font-size: 2rem;
+      color: var(--cream);
+      line-height: 1;
+      position: relative;
+      top: 1px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sand);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--amber); }
+
+    /* Hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background: var(--cream);
+      transition: all 0.3s;
+      transform-origin: center;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: rgba(28, 16, 10, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 99;
+      padding: 32px 28px;
+      flex-direction: column;
+      gap: 0;
+      border-bottom: 1px solid rgba(196, 82, 26, 0.2);
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile li { list-style: none; }
+    .nav-mobile a {
+      display: block;
+      font-family: 'Jost', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sand);
+      text-decoration: none;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(196, 82, 26, 0.12);
+      transition: color 0.3s;
+    }
+    .nav-mobile a:hover { color: var(--amber); }
+
+    /* ── HERO ANIMATIONS ── */
+    /* ── GUITAR STRINGS ── */
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 55% 45%;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        150deg,
+        #1C100A 0%,
+        #2A1208 25%,
+        #5A2008 55%,
+        #C4521A 80%,
+        #1C100A 100%
+      );
+      z-index: 0;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 75% 30%, rgba(232,135,58,0.35) 0%, transparent 60%),
+        radial-gradient(ellipse at 10% 90%, rgba(28,16,10,0.85) 0%, transparent 50%);
+      z-index: 1;
+    }
+
+    .hero-left {
+      position: relative;
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 100px 40px 90px 60px;
+      gap: 48px;
+    }
+    .hero-tag {
+      font-family: 'Jost', sans-serif;
+      font-size: clamp(0.65rem, 0.85vw, 0.95rem);
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+    .hero-name {
+      font-family: 'Abril Fatface', serif;
+      font-size: clamp(3rem, 6.5vw, 7rem);
+      line-height: 0.88;
+      color: var(--warm-white);
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+    .hero-name span {
+      color: var(--amber);
+      display: block;
+    }
+    .hero-foot {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .hero-sub {
+      font-family: 'Lora', serif;
+      font-size: clamp(0.95rem, 1.1vw, 1.15rem);
+      line-height: 1.75;
+      color: rgba(245,236,215,0.92);
+      max-width: 100%;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--rust);
+      color: var(--cream);
+      text-decoration: none;
+      padding: 16px 40px;
+      font-family: 'Jost', sans-serif;
+      font-size: clamp(0.75rem, 0.9vw, 0.9rem);
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      width: fit-content;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .hero-cta:hover { background: var(--warm-orange); transform: translateY(-3px); }
+    .hero-cta svg { width: 1em; height: 1em; flex-shrink: 0; }
+
+    .hero-right {
+      position: relative;
+      z-index: 2;
+      overflow: visible;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Record scene wrapper */
+    .hero-record-scene {
+      position: relative;
+      width: 92%;
+      height: 88%;
+    }
+    /* Sleeve — album cover, fills right side of scene */
+    .hero-sleeve {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 4;
+      width: 72%;
+      aspect-ratio: 1 / 1.22;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: -18px 24px 70px rgba(0,0,0,0.7), 5px 5px 0 rgba(196,82,26,0.2);
+    }
+    .hero-sleeve img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: sepia(10%) saturate(1.15);
+    }
+    .hero-sleeve::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    /* Vinyl disc — center aligned with sleeve's left edge, so exactly half is hidden */
+    /* Sleeve left edge = 28% from scene left. Vinyl radius = 42.5% of scene.       */
+    /* Vinyl positioning wrapper — handles translateY only, no rotation */
+    .hero-vinyl-wrap {
+      position: absolute;
+      left: -14.5%;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 3;
+      width: 85%;
+      aspect-ratio: 1;
+    }
+    /* Spinning disc — no children, pure rotation */
+    .hero-vinyl {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        #0e0704 0%,
+        #1a0c06 16%,
+        #251008 30%,
+        #1a0c06 44%,
+        #0e0704 56%,
+        #1a0c06 70%,
+        #251008 82%,
+        #0e0704 100%
+      );
+      box-shadow:
+        0 0 0 2px rgba(196,82,26,0.35),
+        8px 8px 56px rgba(0,0,0,0.85);
+      transform-origin: 50% 50%;
+      animation: vinylSpin 6s linear infinite;
+      will-change: transform;
+    }
+    .hero-vinyl::before {
+      content: '';
+      position: absolute;
+      inset: 9%;
+      border-radius: 50%;
+      border: 1.5px solid rgba(196,82,26,0.25);
+    }
+    .hero-vinyl::after {
+      content: '';
+      position: absolute;
+      inset: 21%;
+      border-radius: 50%;
+      border: 1px solid rgba(196,82,26,0.18);
+    }
+    @keyframes vinylSpin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    /* Label sits outside spinner — static, perfectly centred over disc */
+    .hero-vinyl-label {
+      position: absolute;
+      width: 38%;
+      height: 38%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--rust) 0%, var(--burnt) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+      pointer-events: none;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    }
+    .vinyl-r {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      color: var(--amber);
+      line-height: 1;
+      font-size: min(5vw, 52px);
+    }
+    .vinyl-j {
+      font-family: 'Abril Fatface', serif;
+      color: var(--cream);
+      line-height: 1;
+      font-size: min(4.8vw, 50px);
+      margin-top: -3px;
+    }
+    /* Orange sticker — rotates with disc */
+    .vinyl-sticker {
+      position: absolute;
+      width: 9%;
+      height: 9%;
+      border-radius: 50%;
+      background: var(--warm-orange);
+      top: 12%;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 10px rgba(196,82,26,0.7), 0 0 4px rgba(232,135,58,0.5);
+    }
+    /* Tiny centre spindle */
+    .hero-vinyl-hole {
+      position: absolute;
+      width: 3.5%;
+      height: 3.5%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: #060301;
+      border: 1px solid rgba(196,82,26,0.3);
+      z-index: 6;
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 100px 60px; }
+
+    .section-tag {
+      font-family: 'Jost', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 22px;
+      display: block;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 4.5vw, 5rem);
+      line-height: 1.0;
+      margin-bottom: 32px;
+    }
+    .section-title em { font-style: italic; color: var(--amber); }
+
+    /* ── ABOUT ── */
+    .about {
+      background: var(--warm-white);
+      color: var(--deep-brown);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+    .about .section-tag { color: var(--rust); }
+    .about .section-title { color: var(--deep-brown); }
+    .about-body {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--deep-brown);
+      max-width: 540px;
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      margin-top: 40px;
+    }
+    .stat-block {
+      background: var(--cream);
+      padding: 32px 28px;
+    }
+    .stat-number {
+      font-family: 'Abril Fatface', serif;
+      font-size: 2.6rem;
+      color: var(--rust);
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid-brown);
+      margin-top: 12px;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-img-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+    .about-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      filter: sepia(18%) saturate(1.1);
+    }
+    .about-img-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(196,82,26,0.35) 0%, transparent 55%);
+      z-index: 1;
+    }
+    .about-badge {
+      position: absolute;
+      bottom: -28px;
+      left: -28px;
+      width: 130px;
+      height: 130px;
+      background: var(--rust);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 2;
+    }
+    .about-badge span:first-child {
+      font-family: 'Abril Fatface', serif;
+      font-size: 2rem;
+      color: var(--cream);
+      line-height: 1;
+    }
+    .about-badge span:last-child {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-top: 6px;
+    }
+
+    /* ── PERFORMANCES ── */
+    .performances {
+      background: var(--deep-brown);
+    }
+    .perf-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 52px;
+    }
+    .performances .section-title { color: var(--cream); margin-bottom: 0; }
+    .perf-sub {
+      font-family: 'Lora', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      line-height: 1.75;
+      color: var(--sand);
+      max-width: 300px;
+      text-align: right;
+    }
+    .perf-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .placeholder-frame {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--mid-brown);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      border: 1px dashed rgba(196, 82, 26, 0.3);
+    }
+    .placeholder-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid rgba(196, 82, 26, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(196, 82, 26, 0.45);
+      font-size: 1.2rem;
+      padding-left: 4px;
+    }
+    .placeholder-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted-sand);
+    }
+
+    /* ── MUSIC / VIDEOS ── */
+    .music {
+      background: var(--mid-brown);
+    }
+    .music-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 52px;
+    }
+    .music .section-title { color: var(--cream); margin-bottom: 0; }
+    .music-sub {
+      font-family: 'Lora', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      line-height: 1.75;
+      color: var(--cream);
+      max-width: 300px;
+      text-align: right;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .video-card {
+      position: relative;
+      background: var(--deep-brown);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    }
+    .video-card video {
+      width: 100%;
+      aspect-ratio: 16/9;
+      display: block;
+      object-fit: cover;
+      background: #0a0604;
+    }
+    .video-info {
+      padding: 28px 32px;
+      border-top: 1px solid rgba(196, 82, 26, 0.25);
+    }
+    .video-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 10px;
+    }
+    .video-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      color: var(--cream);
+    }
+
+    /* ── EP PROJECT ── */
+    .ep {
+      background: var(--rust);
+      position: relative;
+      overflow: hidden;
+    }
+    .ep::before {
+      content: 'EP';
+      position: absolute;
+      right: -60px;
+      top: -60px;
+      font-family: 'Abril Fatface', serif;
+      font-size: 30vw;
+      color: rgba(0,0,0,0.1);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .ep-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 90px;
+      align-items: center;
+    }
+    .ep .section-tag { color: rgba(255,255,255,0.65); }
+    .ep .section-title { color: var(--cream); }
+    .ep-body {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--cream);
+      max-width: 680px;
+    }
+    .ep-details {
+      margin-top: 52px;
+    }
+    .ep-detail-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 36px;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.18);
+    }
+    .ep-detail-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.4);
+      min-width: 60px;
+    }
+    .ep-detail-text {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      color: var(--cream);
+      line-height: 1.6;
+    }
+    .ep-album {
+      background: var(--deep-brown);
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 44px;
+      position: relative;
+      overflow: hidden;
+    }
+    .ep-album::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 30%, rgba(196,82,26,0.45) 0%, transparent 60%);
+    }
+    .ep-album-title {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 2rem;
+      color: var(--amber);
+      position: relative;
+      z-index: 1;
+    }
+    .ep-album-sub {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--sand);
+      margin-top: 10px;
+      position: relative;
+      z-index: 1;
+    }
+    .vinyl-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 65%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 1px solid rgba(196,82,26,0.35);
+      animation: spin 20s linear infinite;
+    }
+    .vinyl-ring::after {
+      content: '';
+      position: absolute;
+      inset: 10%;
+      border-radius: 50%;
+      border: 1px solid rgba(196,82,26,0.2);
+    }
+    @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+    /* ── SKILLS ── */
+    .skills {
+      background: var(--cream);
+      color: var(--deep-brown);
+    }
+    .skills .section-tag { color: var(--rust); }
+    .skills .section-title { color: var(--deep-brown); margin-bottom: 72px; }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+    }
+    .skill-item {
+      background: var(--warm-white);
+      padding: 52px 40px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.35s;
+    }
+    .skill-item:hover { background: var(--deep-brown); }
+    .skill-item:hover .skill-name { color: var(--cream); }
+    .skill-item:hover .skill-desc { color: var(--sand); }
+    .skill-item:hover .skill-num { color: var(--amber); }
+    .skill-num {
+      font-family: 'Jost', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      color: var(--rust);
+      margin-bottom: 28px;
+      display: block;
+      transition: color 0.35s;
+    }
+    .skill-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.75rem;
+      color: var(--deep-brown);
+      margin-bottom: 22px;
+      line-height: 1.05;
+      transition: color 0.35s;
+    }
+    .skill-desc {
+      font-family: 'Lora', serif;
+      font-size: 1.0rem;
+      line-height: 1.75;
+      color: var(--mid-brown);
+      transition: color 0.35s;
+    }
+
+    /* ── EXPERIENCE ── */
+    .experience {
+      background: var(--deep-brown);
+    }
+    .experience .section-title { color: var(--cream); margin-bottom: 72px; }
+    .exp-list { width: 100%; }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 60px;
+      padding: 56px 0;
+      border-bottom: 1px solid rgba(196, 82, 26, 0.2);
+    }
+    .exp-date {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rust);
+      padding-top: 8px;
+    }
+    .exp-role {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.4rem;
+      color: var(--cream);
+      margin-bottom: 12px;
+      line-height: 1.02;
+    }
+    .exp-org {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 24px;
+    }
+    .exp-body {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: rgba(245,236,215,0.85);
+    }
+
+    /* ── CONTACT ── */
+    .contact {
+      background: var(--warm-orange);
+      text-align: center;
+      padding: 120px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(232,135,58,0.55) 0%, transparent 70%);
+    }
+    .contact .section-tag { color: rgba(255,255,255,0.75); margin-bottom: 14px; }
+    .contact-title {
+      font-family: 'Abril Fatface', serif;
+      font-size: clamp(3.2rem, 7vw, 7rem);
+      color: var(--cream);
+      line-height: 1.05;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .contact-title em {
+      font-style: italic;
+      font-family: 'DM Serif Display', serif;
+    }
+    .contact-sub {
+      font-family: 'Lora', serif;
+      font-size: 1.3rem;
+      color: var(--cream);
+      margin-bottom: 52px;
+      position: relative;
+      z-index: 1;
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 44px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .contact-btn.primary {
+      background: var(--deep-brown);
+      color: var(--cream);
+    }
+    .contact-btn.primary:hover { background: var(--mid-brown); transform: translateY(-3px); }
+    .contact-btn.secondary {
+      background: transparent;
+      color: var(--cream);
+      border: 1px solid rgba(255,255,255,0.55);
+    }
+    .contact-btn.secondary:hover { background: rgba(255,255,255,0.12); transform: translateY(-3px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--deep-brown);
+      border-top: 1px solid rgba(196, 82, 26, 0.18);
+      padding: 44px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      color: var(--sand);
+    }
+    .footer-copy {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--muted-sand);
+    }
+    .footer-location {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--muted-sand);
+    }
+
+    /* ── ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav { padding: 20px 28px; }
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      section { padding: 70px 32px; }
+      .hero { grid-template-columns: 1fr; min-height: 620px; }
+      .hero-left { padding: 90px 32px 60px; }
+      .hero-right { display: none; }
+      .hero-name { font-size: clamp(5rem, 14vw, 8rem); }
+      .hero-sub { font-size: 1.1rem; max-width: 100%; }
+      .about { grid-template-columns: 1fr; gap: 60px; }
+      .about-visual { max-width: 420px; }
+      .about-img-wrap { aspect-ratio: 4/3; }
+      .music-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .music-sub { text-align: left; }
+      .video-grid { grid-template-columns: 1fr; gap: 20px; }
+      .perf-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .perf-sub { text-align: left; }
+      .perf-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+      .ep-inner { grid-template-columns: 1fr; gap: 0; }
+      .ep-album { display: none; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .exp-item { grid-template-columns: 1fr; gap: 10px; }
+      footer { flex-direction: column; gap: 14px; text-align: center; }
+    }
+    @media (max-width: 600px) {
+      nav { padding: 18px 20px; }
+      .hero { min-height: 580px; }
+      .hero-left { padding: 80px 20px 50px; }
+      .hero-name { font-size: clamp(4.5rem, 18vw, 7rem); }
+      .hero-sub { font-size: 1.05rem; }
+      section { padding: 60px 20px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+      .about-badge { width: 110px; height: 110px; bottom: -20px; left: -16px; }
+      .perf-grid { grid-template-columns: 1fr; }
+      .contact { padding: 100px 24px; }
+      .contact-btn { padding: 16px 28px; font-size: 0.82rem; }
+      footer { padding: 36px 20px; }
+      .video-info { padding: 20px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="nav-logo"><span class="logo-r">r</span><span class="logo-j">J</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#music">Music</a></li>
+      <li><a href="#performances">Live</a></li>
+      <li><a href="#ep">EP</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <ul class="nav-mobile" id="navMobile">
+    <li><a href="#about">About</a></li>
+    <li><a href="#music">Music</a></li>
+    <li><a href="#performances">Live</a></li>
+    <li><a href="#ep">EP</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+
+
+    <!-- Left content column -->
+    <div class="hero-left">
+      <span class="hero-tag">Toronto &nbsp;·&nbsp; Guitarist &nbsp;·&nbsp; Songwriter</span>
+      <h1 class="hero-name">Rafa<span>Jusi</span></h1>
+      <div class="hero-foot">
+        <p class="hero-sub">Emerging guitarist and songwriter with a deep foundation in performance, composition, and collaborative music-making.</p>
+        <a href="#music" class="hero-cta">
+          Hear the Music
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right photo column -->
+    <div class="hero-right">
+      <div class="hero-record-scene">
+        <div class="hero-vinyl-wrap">
+          <div class="hero-vinyl">
+            <div class="vinyl-sticker"></div>
+          </div>
+          <div class="hero-vinyl-label">
+            <span class="vinyl-r">r</span>
+            <span class="vinyl-j">J</span>
+          </div>
+          <div class="hero-vinyl-hole"></div>
+        </div>
+        <div class="hero-sleeve">
+          <img src="profile.jpeg" alt="Rafa Jusi" />
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="reveal">
+      <span class="section-tag">Who I Am</span>
+      <h2 class="section-title">More than just<br><em>chords.</em></h2>
+      <p class="about-body">Rooted in Toronto and shaped by Centennial College's music program, I bring together guitar performance, songwriting, and a genuine love for collaboration. Whether teaching, composing for film, or building my own sound — I'm in it fully.</p>
+      <div class="about-stats">
+        <div class="stat-block">
+          <div class="stat-number">5+</div>
+          <div class="stat-label">Years Teaching</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-number">1 EP</div>
+          <div class="stat-label">Released</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-number">Film</div>
+          <div class="stat-label">Score Credit</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-number">Live</div>
+          <div class="stat-label">Performances</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual reveal">
+      <div class="about-img-wrap">
+        <img src="profile.jpeg" alt="Rafa Jusi playing guitar" />
+      </div>
+      <div class="about-badge">
+        <span style="font-family:'DM Serif Display',serif;font-style:italic;color:var(--amber);font-size:1.5rem;line-height:1">r</span><span style="font-family:'Abril Fatface',serif;color:var(--cream);font-size:1.45rem;line-height:1;position:relative;top:1px">J</span>
+        <span>Artist</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MUSIC / VIDEOS -->
+  <section class="music" id="music">
+    <div class="music-header reveal">
+      <div>
+        <span class="section-tag">My Work</span>
+        <h2 class="section-title" style="color:var(--cream);">Watch &amp; <em>Listen.</em></h2>
+      </div>
+      <p class="music-sub">Original productions and performances — from indie to alternative R&B.</p>
+    </div>
+    <div class="video-grid reveal">
+      <div class="video-card">
+        <video controls preload="metadata">
+          <source src="video_1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-info">
+          <div class="video-label">Performance · Vol. 01</div>
+          <div class="video-title">Original Production</div>
+        </div>
+      </div>
+      <div class="video-card">
+        <video controls preload="metadata">
+          <source src="video_2.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-info">
+          <div class="video-label">Performance · Vol. 02</div>
+          <div class="video-title">Original Production</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERFORMANCES -->
+  <section class="performances" id="performances">
+    <div class="perf-header reveal">
+      <div>
+        <span class="section-tag">Live</span>
+        <h2 class="section-title">On <em>Stage.</em></h2>
+      </div>
+      <p class="perf-sub">Live sets, covers &amp; sessions — videos coming soon.</p>
+    </div>
+    <div class="perf-grid reveal">
+      <div class="video-card">
+        <div class="placeholder-frame">
+          <div class="placeholder-icon">&#9654;</div>
+          <div class="placeholder-label">Coming Soon</div>
+        </div>
+        <div class="video-info">
+          <div class="video-label">Live · Vol. 01</div>
+          <div class="video-title">Performance</div>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="placeholder-frame">
+          <div class="placeholder-icon">&#9654;</div>
+          <div class="placeholder-label">Coming Soon</div>
+        </div>
+        <div class="video-info">
+          <div class="video-label">Live · Vol. 02</div>
+          <div class="video-title">Performance</div>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="placeholder-frame">
+          <div class="placeholder-icon">&#9654;</div>
+          <div class="placeholder-label">Coming Soon</div>
+        </div>
+        <div class="video-info">
+          <div class="video-label">Live · Vol. 03</div>
+          <div class="video-title">Performance</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EP -->
+  <section class="ep" id="ep">
+    <div class="ep-inner">
+      <div class="reveal">
+        <span class="section-tag">Latest Project</span>
+        <h2 class="section-title">blink and<br><em>you'll miss it.</em></h2>
+        <p class="ep-body">An EP built from the ground up — guitar-driven melodies woven through indie and alternative R&B textures. Every note, arrangement, and idea came from the same place: a need to say something that words alone can't.</p>
+        <div class="ep-details">
+          <div class="ep-detail-item">
+            <span class="ep-detail-num">01</span>
+            <span class="ep-detail-text">Original material written and arranged independently</span>
+          </div>
+          <div class="ep-detail-item">
+            <span class="ep-detail-num">02</span>
+            <span class="ep-detail-text">Guitar-driven melodies with indie & alt R&B influences</span>
+          </div>
+          <div class="ep-detail-item">
+            <span class="ep-detail-num">03</span>
+            <span class="ep-detail-text">Full creative development from concept to completion</span>
+          </div>
+          <div class="ep-detail-item">
+            <span class="ep-detail-num">04</span>
+            <span class="ep-detail-text">Produced and recorded using Logic Pro</span>
+          </div>
+        </div>
+      </div>
+      <div class="ep-album reveal">
+        <div class="vinyl-ring"></div>
+        <div class="ep-album-title">"blink and<br>you'll miss it"</div>
+        <div class="ep-album-sub">Rafa Jusi · EP</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills" id="skills">
+    <div class="reveal">
+      <span class="section-tag">Craft</span>
+      <h2 class="section-title">What I <em>bring.</em></h2>
+    </div>
+    <div class="skills-grid reveal">
+      <div class="skill-item">
+        <span class="skill-num">01</span>
+        <div class="skill-name">Guitar Performance</div>
+        <div class="skill-desc">From classical technique to indie and R&B — versatile, expressive playing developed through years of study and performance.</div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-num">02</span>
+        <div class="skill-name">Songwriting &amp; Composition</div>
+        <div class="skill-desc">Original compositions for solo projects and visual media. Skilled at aligning music with emotional and narrative intent.</div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-num">03</span>
+        <div class="skill-name">Music Theory</div>
+        <div class="skill-desc">Deep theoretical knowledge applied practically — harmony, rhythm, and structure as creative tools, not just rules.</div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-num">04</span>
+        <div class="skill-name">Recording &amp; Production</div>
+        <div class="skill-desc">Logic Pro-based production workflow. Comfortable tracking, arranging, mixing, and finishing original music independently.</div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-num">05</span>
+        <div class="skill-name">Collaboration</div>
+        <div class="skill-desc">Experienced working with directors, ensembles, and creative teams. Strong communication and creative leadership.</div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-num">06</span>
+        <div class="skill-name">Instruction</div>
+        <div class="skill-desc">Three years of private guitar teaching, tailoring lessons to each student's goals, level, and learning style.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="experience" id="experience">
+    <span class="section-tag reveal">Journey</span>
+    <h2 class="section-title reveal">Experience &amp; <em>Education.</em></h2>
+    <div class="exp-list">
+
+      <div class="exp-item reveal">
+        <div class="exp-date">2023 – 2025</div>
+        <div>
+          <div class="exp-role">Music Student & Musician</div>
+          <div class="exp-org">Centennial College</div>
+          <div class="exp-body">Developed advanced skills in guitar performance, songwriting, and music theory. Participated in ensembles, live performances, and collaborative projects. Completed multiple original composition and recording projects from the ground up.</div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-date">2024</div>
+        <div>
+          <div class="exp-role">Songwriter / Composer</div>
+          <div class="exp-org">The Pirate Club</div>
+          <div class="exp-body">Co-wrote an original song for a narrative student film. Worked closely with the director to align the music with the story's emotional tone and dramatic arc — blending creative vision with functional storytelling.</div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-date">2019 – 2022</div>
+        <div>
+          <div class="exp-role">Private Guitar Instructor</div>
+          <div class="exp-org">Self-Employed</div>
+          <div class="exp-body">Provided one-on-one guitar lessons tailored to each student's skill level and goals. Taught technique, rhythm, and foundational music theory — making complex concepts accessible and engaging for learners of all ages.</div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-date">Expected 2026</div>
+        <div>
+          <div class="exp-role">Advanced Diploma</div>
+          <div class="exp-org">Centennial College — Music Program</div>
+          <div class="exp-body">Completing an Advanced Diploma with a focus on performance, composition, and music production. Building a comprehensive foundation that bridges academic theory with real-world creative practice.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <span class="section-tag">Get in Touch</span>
+    <h2 class="contact-title">Let's make<br>something <em>together.</em></h2>
+    <p class="contact-sub">Available for collaborations, sessions, film scoring, lessons &amp; more.</p>
+    <div class="contact-links">
+      <a href="mailto:rafa24jusi@gmail.com" class="contact-btn primary">
+        rafa24jusi@gmail.com
+      </a>
+      <a href="tel:+14376635322" class="contact-btn secondary">
+        +1 (437) 663-5322
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo"><span style="font-family:'DM Serif Display',serif;font-style:italic;color:var(--amber)">r</span><span style="font-family:'Abril Fatface',serif;color:var(--sand)">J</span></div>
+    <div class="footer-copy">© 2025 Rafa Jusi. All rights reserved.</div>
+    <div class="footer-location">Toronto, ON · Canada</div>
+  </footer>
+
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navMobile = document.getElementById('navMobile');
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('open');
+      navMobile.classList.toggle('open');
+    });
+    navMobile.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('open');
+        navMobile.classList.remove('open');
+      });
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal'));
+          const idx = siblings.indexOf(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, 80 * idx);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
