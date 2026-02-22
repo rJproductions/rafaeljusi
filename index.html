@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luis Rafael Jusi — Guitarist · Teacher · Songwriter</title>
+  <title>Rafa Jusi — Guitarist · Teacher · Songwriter</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=DM+Serif+Display:ital@0;1&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -30,7 +30,7 @@
       color: var(--cream);
       font-family: 'Lora', serif;
       font-weight: 400;
-      font-size: 18px;
+      font-size: 20px;
       overflow-x: hidden;
     }
 
@@ -63,22 +63,37 @@
       border-bottom: 1px solid rgba(196, 82, 26, 0.2);
     }
     .nav-logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.35rem;
-      letter-spacing: 0.04em;
-      color: var(--cream);
+      display: flex;
+      align-items: baseline;
+      gap: 0px;
       text-decoration: none;
+      line-height: 1;
+    }
+    .logo-r {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 6rem;
+      color: var(--amber);
+      line-height: 1;
+    }
+    .logo-j {
+      font-family: 'Abril Fatface', serif;
+      font-size: 5.7rem;
+      color: var(--cream);
+      line-height: 1;
+      position: relative;
+      top: 1px;
     }
     .nav-links {
       display: flex;
-      gap: 40px;
+      gap: 36px;
       list-style: none;
     }
     .nav-links a {
       font-family: 'Jost', sans-serif;
-      font-size: 0.85rem;
+      font-size: 1.55rem;
       font-weight: 400;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--sand);
       text-decoration: none;
@@ -136,28 +151,26 @@
     }
     .nav-mobile a:hover { color: var(--amber); }
 
+    /* ── HERO ANIMATIONS ── */
+    /* ── GUITAR STRINGS ── */
+
     /* ── HERO ── */
     .hero {
       position: relative;
-      height: 100vh;
-      min-height: 700px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: flex-start;
-      padding: 0 60px 90px;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 55% 45%;
       overflow: hidden;
     }
     .hero-bg {
       position: absolute;
       inset: 0;
       background: linear-gradient(
-        155deg,
+        150deg,
         #1C100A 0%,
-        #3A1F10 20%,
-        #7A2E08 45%,
-        #C4521A 70%,
-        #E07030 85%,
+        #2A1208 25%,
+        #5A2008 55%,
+        #C4521A 80%,
         #1C100A 100%
       );
       z-index: 0;
@@ -166,64 +179,52 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 65% 35%, rgba(232,135,58,0.4) 0%, transparent 55%),
-                  radial-gradient(ellipse at 15% 85%, rgba(28,16,10,0.9) 0%, transparent 55%);
+      background:
+        radial-gradient(ellipse at 75% 30%, rgba(232,135,58,0.35) 0%, transparent 60%),
+        radial-gradient(ellipse at 10% 90%, rgba(28,16,10,0.85) 0%, transparent 50%);
       z-index: 1;
     }
 
-    .hero-profile {
-      position: absolute;
-      right: 60px;
-      bottom: 0;
-      width: 42vw;
-      max-width: 580px;
-      z-index: 3;
-    }
-    .hero-profile img {
-      width: 100%;
-      height: 88vh;
-      object-fit: cover;
-      object-position: top center;
-      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%);
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 100%);
-      filter: sepia(10%) saturate(1.15);
-    }
-
-    .hero-content {
+    .hero-left {
       position: relative;
       z-index: 4;
-      max-width: 660px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 100px 40px 90px 60px;
+      gap: 48px;
     }
     .hero-tag {
       font-family: 'Jost', sans-serif;
-      font-size: 0.88rem;
+      font-size: clamp(0.75rem, 1.5vw, 2rem);
       font-weight: 400;
-      letter-spacing: 0.35em;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
       color: var(--amber);
-      margin-bottom: 24px;
-      display: block;
     }
     .hero-name {
       font-family: 'Abril Fatface', serif;
-      font-size: clamp(5.5rem, 11vw, 10rem);
-      line-height: 0.90;
+      font-size: clamp(4.5rem, 9vw, 12rem);
+      line-height: 0.88;
       color: var(--warm-white);
-      margin-bottom: 28px;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.02em;
+      margin: 0;
     }
     .hero-name span {
-      font-style: normal;
       color: var(--amber);
       display: block;
     }
+    .hero-foot {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
     .hero-sub {
       font-family: 'Lora', serif;
-      font-size: 1.15rem;
-      line-height: 1.8;
-      color: var(--sand);
-      max-width: 420px;
-      margin-bottom: 44px;
+      font-size: clamp(0.95rem, 1.3vw, 1.9rem);
+      line-height: 1.75;
+      color: rgba(245,236,215,0.92);
+      max-width: 100%;
     }
     .hero-cta {
       display: inline-flex;
@@ -232,36 +233,178 @@
       background: var(--rust);
       color: var(--cream);
       text-decoration: none;
-      padding: 16px 38px;
+      padding: 16px 40px;
       font-family: 'Jost', sans-serif;
-      font-size: 0.88rem;
+      font-size: clamp(0.85rem, 1rem, 1.4rem);
       font-weight: 500;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       border-radius: 2px;
+      width: fit-content;
       transition: background 0.3s, transform 0.3s;
     }
     .hero-cta:hover { background: var(--warm-orange); transform: translateY(-3px); }
-    .hero-cta svg { width: 15px; height: 15px; }
+    .hero-cta svg { width: 1em; height: 1em; flex-shrink: 0; }
+
+    .hero-right {
+      position: relative;
+      z-index: 2;
+      overflow: visible;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Record scene wrapper */
+    .hero-record-scene {
+      position: relative;
+      width: 92%;
+      height: 88%;
+    }
+    /* Sleeve — album cover, fills right side of scene */
+    .hero-sleeve {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 4;
+      width: 72%;
+      aspect-ratio: 1 / 1.22;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: -18px 24px 70px rgba(0,0,0,0.7), 5px 5px 0 rgba(196,82,26,0.2);
+    }
+    .hero-sleeve img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: sepia(10%) saturate(1.15);
+    }
+    .hero-sleeve::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    /* Vinyl disc — center aligned with sleeve's left edge, so exactly half is hidden */
+    /* Sleeve left edge = 28% from scene left. Vinyl radius = 42.5% of scene.       */
+    /* Vinyl positioning wrapper — handles translateY only, no rotation */
+    .hero-vinyl-wrap {
+      position: absolute;
+      left: -14.5%;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 3;
+      width: 85%;
+      aspect-ratio: 1;
+    }
+    /* Spinning disc — no children, pure rotation */
+    .hero-vinyl {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        #0e0704 0%,
+        #1a0c06 16%,
+        #251008 30%,
+        #1a0c06 44%,
+        #0e0704 56%,
+        #1a0c06 70%,
+        #251008 82%,
+        #0e0704 100%
+      );
+      box-shadow:
+        0 0 0 2px rgba(196,82,26,0.35),
+        8px 8px 56px rgba(0,0,0,0.85);
+      transform-origin: 50% 50%;
+      animation: vinylSpin 6s linear infinite;
+      will-change: transform;
+    }
+    .hero-vinyl::before {
+      content: '';
+      position: absolute;
+      inset: 9%;
+      border-radius: 50%;
+      border: 1.5px solid rgba(196,82,26,0.25);
+    }
+    .hero-vinyl::after {
+      content: '';
+      position: absolute;
+      inset: 21%;
+      border-radius: 50%;
+      border: 1px solid rgba(196,82,26,0.18);
+    }
+    @keyframes vinylSpin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    /* Label sits outside spinner — static, perfectly centred over disc */
+    .hero-vinyl-label {
+      position: absolute;
+      width: 38%;
+      height: 38%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--rust) 0%, var(--burnt) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+      pointer-events: none;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    }
+    .vinyl-r {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      color: var(--amber);
+      line-height: 1;
+      font-size: min(5vw, 52px);
+    }
+    .vinyl-j {
+      font-family: 'Abril Fatface', serif;
+      color: var(--cream);
+      line-height: 1;
+      font-size: min(4.8vw, 50px);
+      margin-top: -3px;
+    }
+    /* Tiny centre spindle */
+    .hero-vinyl-hole {
+      position: absolute;
+      width: 3.5%;
+      height: 3.5%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: #060301;
+      border: 1px solid rgba(196,82,26,0.3);
+      z-index: 6;
+    }
 
     /* ── SECTION BASE ── */
-    section { padding: 130px 60px; }
+    section { padding: 100px 60px; }
 
     .section-tag {
       font-family: 'Jost', sans-serif;
-      font-size: 0.82rem;
+      font-size: 1.05rem;
       font-weight: 400;
-      letter-spacing: 0.4em;
+      letter-spacing: 0.35em;
       text-transform: uppercase;
       color: var(--rust);
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       display: block;
     }
     .section-title {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(3.2rem, 5.5vw, 6rem);
-      line-height: 1.05;
-      margin-bottom: 28px;
+      font-size: clamp(4.5rem, 8vw, 10rem);
+      line-height: 1.0;
+      margin-bottom: 32px;
     }
     .section-title em { font-style: italic; color: var(--amber); }
 
@@ -271,23 +414,23 @@
       color: var(--deep-brown);
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 90px;
+      gap: 70px;
       align-items: center;
     }
     .about .section-tag { color: var(--rust); }
     .about .section-title { color: var(--deep-brown); }
     .about-body {
       font-family: 'Lora', serif;
-      font-size: 1.15rem;
-      line-height: 1.9;
-      color: var(--mid-brown);
-      max-width: 490px;
+      font-size: 1.4rem;
+      line-height: 1.85;
+      color: var(--deep-brown);
+      max-width: 540px;
     }
     .about-stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3px;
-      margin-top: 52px;
+      margin-top: 40px;
     }
     .stat-block {
       background: var(--cream);
@@ -295,18 +438,18 @@
     }
     .stat-number {
       font-family: 'Abril Fatface', serif;
-      font-size: 3.2rem;
+      font-size: 3.8rem;
       color: var(--rust);
       line-height: 1;
     }
     .stat-label {
       font-family: 'Jost', sans-serif;
-      font-size: 0.82rem;
+      font-size: 0.95rem;
       font-weight: 400;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--muted-sand);
-      margin-top: 10px;
+      color: var(--mid-brown);
+      margin-top: 12px;
     }
     .about-visual {
       position: relative;
@@ -362,6 +505,62 @@
       margin-top: 6px;
     }
 
+    /* ── PERFORMANCES ── */
+    .performances {
+      background: var(--deep-brown);
+    }
+    .perf-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 52px;
+    }
+    .performances .section-title { color: var(--cream); margin-bottom: 0; }
+    .perf-sub {
+      font-family: 'Lora', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      line-height: 1.75;
+      color: var(--sand);
+      max-width: 300px;
+      text-align: right;
+    }
+    .perf-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .placeholder-frame {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--mid-brown);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      border: 1px dashed rgba(196, 82, 26, 0.3);
+    }
+    .placeholder-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid rgba(196, 82, 26, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(196, 82, 26, 0.45);
+      font-size: 1.2rem;
+      padding-left: 4px;
+    }
+    .placeholder-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted-sand);
+    }
+
     /* ── MUSIC / VIDEOS ── */
     .music {
       background: var(--mid-brown);
@@ -370,16 +569,16 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      margin-bottom: 64px;
+      margin-bottom: 52px;
     }
     .music .section-title { color: var(--cream); margin-bottom: 0; }
     .music-sub {
       font-family: 'Lora', serif;
-      font-size: 1rem;
+      font-size: 1.15rem;
       font-style: italic;
       line-height: 1.75;
-      color: var(--sand);
-      max-width: 280px;
+      color: var(--cream);
+      max-width: 300px;
       text-align: right;
     }
     .video-grid {
@@ -407,16 +606,16 @@
     }
     .video-label {
       font-family: 'Jost', sans-serif;
-      font-size: 0.78rem;
+      font-size: 0.9rem;
       font-weight: 400;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--rust);
+      color: var(--amber);
       margin-bottom: 10px;
     }
     .video-title {
       font-family: 'DM Serif Display', serif;
-      font-size: 1.7rem;
+      font-size: 2rem;
       color: var(--cream);
     }
 
@@ -449,32 +648,32 @@
     .ep .section-title { color: var(--cream); }
     .ep-body {
       font-family: 'Lora', serif;
-      font-size: 1.1rem;
-      line-height: 1.9;
-      color: rgba(245, 236, 215, 0.88);
-      max-width: 490px;
+      font-size: 2.2rem;
+      line-height: 1.8;
+      color: var(--cream);
+      max-width: 680px;
     }
     .ep-details {
-      margin-top: 44px;
+      margin-top: 52px;
     }
     .ep-detail-item {
       display: flex;
       align-items: flex-start;
-      gap: 24px;
-      padding: 22px 0;
+      gap: 36px;
+      padding: 28px 0;
       border-bottom: 1px solid rgba(255,255,255,0.18);
     }
     .ep-detail-num {
       font-family: 'DM Serif Display', serif;
-      font-size: 1rem;
+      font-size: 2.2rem;
       color: rgba(255,255,255,0.4);
-      min-width: 30px;
+      min-width: 60px;
     }
     .ep-detail-text {
       font-family: 'Lora', serif;
-      font-size: 1rem;
-      color: rgba(245, 236, 215, 0.92);
-      line-height: 1.65;
+      font-size: 2rem;
+      color: var(--cream);
+      line-height: 1.6;
     }
     .ep-album {
       background: var(--deep-brown);
@@ -545,7 +744,7 @@
     }
     .skill-item {
       background: var(--warm-white);
-      padding: 44px 36px;
+      padding: 52px 40px;
       position: relative;
       overflow: hidden;
       transition: background 0.35s;
@@ -553,22 +752,30 @@
     .skill-item:hover { background: var(--deep-brown); }
     .skill-item:hover .skill-name { color: var(--cream); }
     .skill-item:hover .skill-desc { color: var(--sand); }
-    .skill-icon {
-      font-size: 2rem;
-      margin-bottom: 22px;
+    .skill-item:hover .skill-num { color: var(--amber); }
+    .skill-num {
+      font-family: 'Jost', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      color: var(--rust);
+      margin-bottom: 28px;
+      display: block;
+      transition: color 0.35s;
     }
     .skill-name {
       font-family: 'DM Serif Display', serif;
-      font-size: 1.45rem;
+      font-size: 3.4rem;
       color: var(--deep-brown);
-      margin-bottom: 12px;
+      margin-bottom: 22px;
+      line-height: 1.05;
       transition: color 0.35s;
     }
     .skill-desc {
       font-family: 'Lora', serif;
-      font-size: 1rem;
+      font-size: 1.9rem;
       line-height: 1.75;
-      color: var(--muted-sand);
+      color: var(--mid-brown);
       transition: color 0.35s;
     }
 
@@ -577,50 +784,51 @@
       background: var(--deep-brown);
     }
     .experience .section-title { color: var(--cream); margin-bottom: 72px; }
-    .exp-list { max-width: 800px; }
+    .exp-list { width: 100%; }
     .exp-item {
       display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 44px;
-      padding: 44px 0;
+      grid-template-columns: 260px 1fr;
+      gap: 60px;
+      padding: 56px 0;
       border-bottom: 1px solid rgba(196, 82, 26, 0.2);
     }
     .exp-date {
       font-family: 'Jost', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 400;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--rust);
-      padding-top: 6px;
-    }
-    .exp-role {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.7rem;
-      color: var(--cream);
-      margin-bottom: 6px;
-    }
-    .exp-org {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.88rem;
+      font-size: 1.5rem;
       font-weight: 400;
       letter-spacing: 0.14em;
       text-transform: uppercase;
+      color: var(--rust);
+      padding-top: 8px;
+    }
+    .exp-role {
+      font-family: 'DM Serif Display', serif;
+      font-size: 4.5rem;
+      color: var(--cream);
+      margin-bottom: 12px;
+      line-height: 1.02;
+    }
+    .exp-org {
+      font-family: 'Jost', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       color: var(--amber);
-      margin-bottom: 18px;
+      margin-bottom: 24px;
     }
     .exp-body {
       font-family: 'Lora', serif;
-      font-size: 1rem;
+      font-size: 1.9rem;
       line-height: 1.85;
-      color: var(--sand);
+      color: rgba(245,236,215,0.85);
     }
 
     /* ── CONTACT ── */
     .contact {
       background: var(--warm-orange);
       text-align: center;
-      padding: 160px 60px;
+      padding: 120px 60px;
       position: relative;
       overflow: hidden;
     }
@@ -646,8 +854,8 @@
     }
     .contact-sub {
       font-family: 'Lora', serif;
-      font-size: 1.15rem;
-      color: rgba(245,236,215,0.88);
+      font-size: 1.3rem;
+      color: var(--cream);
       margin-bottom: 52px;
       position: relative;
       z-index: 1;
@@ -731,16 +939,21 @@
       nav { padding: 20px 28px; }
       .nav-links { display: none; }
       .nav-toggle { display: flex; }
-      section { padding: 90px 28px; }
-      .hero { padding: 0 28px 70px; }
-      .hero-profile { width: 52vw; right: 16px; }
-      .hero-name { font-size: clamp(4rem, 13vw, 6.5rem); }
+      section { padding: 70px 32px; }
+      .hero { grid-template-columns: 1fr; min-height: 620px; }
+      .hero-left { padding: 90px 32px 60px; }
+      .hero-right { display: none; }
+      .hero-name { font-size: clamp(5rem, 14vw, 8rem); }
+      .hero-sub { font-size: 1.1rem; max-width: 100%; }
       .about { grid-template-columns: 1fr; gap: 60px; }
       .about-visual { max-width: 420px; }
       .about-img-wrap { aspect-ratio: 4/3; }
       .music-header { flex-direction: column; align-items: flex-start; gap: 20px; }
       .music-sub { text-align: left; }
       .video-grid { grid-template-columns: 1fr; gap: 20px; }
+      .perf-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .perf-sub { text-align: left; }
+      .perf-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
       .ep-inner { grid-template-columns: 1fr; gap: 0; }
       .ep-album { display: none; }
       .skills-grid { grid-template-columns: 1fr 1fr; }
@@ -749,14 +962,15 @@
     }
     @media (max-width: 600px) {
       nav { padding: 18px 20px; }
-      .hero { padding: 0 20px 60px; min-height: 600px; }
-      .hero-profile { display: none; }
-      .hero-name { font-size: clamp(3.6rem, 16vw, 5rem); }
-      .hero-sub { font-size: 1rem; }
-      section { padding: 80px 20px; }
+      .hero { min-height: 580px; }
+      .hero-left { padding: 80px 20px 50px; }
+      .hero-name { font-size: clamp(4.5rem, 18vw, 7rem); }
+      .hero-sub { font-size: 1.05rem; }
+      section { padding: 60px 20px; }
       .skills-grid { grid-template-columns: 1fr; }
       .about-stats { grid-template-columns: 1fr 1fr; }
       .about-badge { width: 110px; height: 110px; bottom: -20px; left: -16px; }
+      .perf-grid { grid-template-columns: 1fr; }
       .contact { padding: 100px 24px; }
       .contact-btn { padding: 16px 28px; font-size: 0.82rem; }
       footer { padding: 36px 20px; }
@@ -768,10 +982,11 @@
 
   <!-- NAV -->
   <nav id="nav">
-    <a href="#" class="nav-logo">Luis Rafael</a>
+    <a href="#" class="nav-logo"><span class="logo-r">r</span><span class="logo-j">J</span></a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#music">Music</a></li>
+      <li><a href="#performances">Live</a></li>
       <li><a href="#ep">EP</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -785,6 +1000,7 @@
   <ul class="nav-mobile" id="navMobile">
     <li><a href="#about">About</a></li>
     <li><a href="#music">Music</a></li>
+    <li><a href="#performances">Live</a></li>
     <li><a href="#ep">EP</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -793,19 +1009,38 @@
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-bg"></div>
-    <div class="hero-profile">
-      <img src="profile.jpeg" alt="Luis Rafael Jusi" />
+
+
+    <!-- Left content column -->
+    <div class="hero-left">
+      <span class="hero-tag">Toronto &nbsp;·&nbsp; Guitarist &nbsp;·&nbsp; Songwriter</span>
+      <h1 class="hero-name">Rafa<span>Jusi</span></h1>
+      <div class="hero-foot">
+        <p class="hero-sub">Emerging guitarist and songwriter with a deep foundation in performance, composition, and collaborative music-making.</p>
+        <a href="#music" class="hero-cta">
+          Hear the Music
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
     </div>
-    <div class="hero-content">
-      <span class="hero-tag">Toronto, ON · Guitarist · Songwriter</span>
-      <h1 class="hero-name">Luis<br><span>Rafael</span></h1>
-      <!-- hero name uses Abril Fatface -->
-      <p class="hero-sub">Emerging guitarist and songwriter with a deep foundation in performance, composition, and collaborative music-making.</p>
-      <a href="#music" class="hero-cta">
-        Hear the Music
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+
+    <!-- Right photo column -->
+    <div class="hero-right">
+      <div class="hero-record-scene">
+        <div class="hero-vinyl-wrap">
+          <div class="hero-vinyl"></div>
+          <div class="hero-vinyl-label">
+            <span class="vinyl-r">r</span>
+            <span class="vinyl-j">J</span>
+          </div>
+          <div class="hero-vinyl-hole"></div>
+        </div>
+        <div class="hero-sleeve">
+          <img src="profile.jpeg" alt="Rafa Jusi" />
+        </div>
+      </div>
     </div>
+
   </section>
 
   <!-- ABOUT -->
@@ -835,10 +1070,10 @@
     </div>
     <div class="about-visual reveal">
       <div class="about-img-wrap">
-        <img src="profile.jpeg" alt="Luis Rafael playing guitar" />
+        <img src="profile.jpeg" alt="Rafa Jusi playing guitar" />
       </div>
       <div class="about-badge">
-        <span>LRJ</span>
+        <span style="font-family:'DM Serif Display',serif;font-style:italic;color:var(--amber);font-size:1.5rem;line-height:1">r</span><span style="font-family:'Abril Fatface',serif;color:var(--cream);font-size:1.45rem;line-height:1;position:relative;top:1px">J</span>
         <span>Artist</span>
       </div>
     </div>
@@ -877,6 +1112,49 @@
     </div>
   </section>
 
+  <!-- PERFORMANCES -->
+  <section class="performances" id="performances">
+    <div class="perf-header reveal">
+      <div>
+        <span class="section-tag">Live</span>
+        <h2 class="section-title">On <em>Stage.</em></h2>
+      </div>
+      <p class="perf-sub">Live sets, covers &amp; sessions — videos coming soon.</p>
+    </div>
+    <div class="perf-grid reveal">
+      <div class="video-card">
+        <div class="placeholder-frame">
+          <div class="placeholder-icon">&#9654;</div>
+          <div class="placeholder-label">Coming Soon</div>
+        </div>
+        <div class="video-info">
+          <div class="video-label">Live · Vol. 01</div>
+          <div class="video-title">Performance</div>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="placeholder-frame">
+          <div class="placeholder-icon">&#9654;</div>
+          <div class="placeholder-label">Coming Soon</div>
+        </div>
+        <div class="video-info">
+          <div class="video-label">Live · Vol. 02</div>
+          <div class="video-title">Performance</div>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="placeholder-frame">
+          <div class="placeholder-icon">&#9654;</div>
+          <div class="placeholder-label">Coming Soon</div>
+        </div>
+        <div class="video-info">
+          <div class="video-label">Live · Vol. 03</div>
+          <div class="video-title">Performance</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- EP -->
   <section class="ep" id="ep">
     <div class="ep-inner">
@@ -906,7 +1184,7 @@
       <div class="ep-album reveal">
         <div class="vinyl-ring"></div>
         <div class="ep-album-title">"blink and<br>you'll miss it"</div>
-        <div class="ep-album-sub">Luis Rafael Jusi · EP</div>
+        <div class="ep-album-sub">Rafa Jusi · EP</div>
       </div>
     </div>
   </section>
@@ -919,32 +1197,32 @@
     </div>
     <div class="skills-grid reveal">
       <div class="skill-item">
-        <div class="skill-icon">🎸</div>
+        <span class="skill-num">01</span>
         <div class="skill-name">Guitar Performance</div>
         <div class="skill-desc">From classical technique to indie and R&B — versatile, expressive playing developed through years of study and performance.</div>
       </div>
       <div class="skill-item">
-        <div class="skill-icon">✍️</div>
-        <div class="skill-name">Songwriting & Composition</div>
+        <span class="skill-num">02</span>
+        <div class="skill-name">Songwriting &amp; Composition</div>
         <div class="skill-desc">Original compositions for solo projects and visual media. Skilled at aligning music with emotional and narrative intent.</div>
       </div>
       <div class="skill-item">
-        <div class="skill-icon">🎵</div>
+        <span class="skill-num">03</span>
         <div class="skill-name">Music Theory</div>
         <div class="skill-desc">Deep theoretical knowledge applied practically — harmony, rhythm, and structure as creative tools, not just rules.</div>
       </div>
       <div class="skill-item">
-        <div class="skill-icon">🎛️</div>
-        <div class="skill-name">Recording & Production</div>
+        <span class="skill-num">04</span>
+        <div class="skill-name">Recording &amp; Production</div>
         <div class="skill-desc">Logic Pro-based production workflow. Comfortable tracking, arranging, mixing, and finishing original music independently.</div>
       </div>
       <div class="skill-item">
-        <div class="skill-icon">🤝</div>
+        <span class="skill-num">05</span>
         <div class="skill-name">Collaboration</div>
         <div class="skill-desc">Experienced working with directors, ensembles, and creative teams. Strong communication and creative leadership.</div>
       </div>
       <div class="skill-item">
-        <div class="skill-icon">🎓</div>
+        <span class="skill-num">06</span>
         <div class="skill-name">Instruction</div>
         <div class="skill-desc">Three years of private guitar teaching, tailoring lessons to each student's goals, level, and learning style.</div>
       </div>
@@ -1013,8 +1291,8 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-logo">Luis Rafael Jusi</div>
-    <div class="footer-copy">© 2025 Luis Rafael Jusi. All rights reserved.</div>
+    <div class="footer-logo"><span style="font-family:'DM Serif Display',serif;font-style:italic;color:var(--amber)">r</span><span style="font-family:'Abril Fatface',serif;color:var(--sand)">J</span></div>
+    <div class="footer-copy">© 2025 Rafa Jusi. All rights reserved.</div>
     <div class="footer-location">Toronto, ON · Canada</div>
   </footer>
 
